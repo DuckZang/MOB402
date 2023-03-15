@@ -1,0 +1,24 @@
+- Ôn và thực hành kỹ OOP (Lập trình hướng đối tượng):
+	+ 4 tính chất của OOP(*)
+	- 1) tính chất đóng gói
+	- 2) tính chất trừu tượng
+	- 3) tính chất kế thừa
+	- 4) tính chất đa hình 
+	+ Phân biệt private, protected, public(*)
+	- public : công khai, bất kỳ package hay lớp nào khác cũng có thể truy cập
+	- protected : chỉ các lớp, package được kế thừa mới có thể truy cập
+	- private : duy nhất trong lớp khai báo mới có thể truy cập
+	+ Phân biệt overload, overwrite(*)
+	+ So sánh interface và abstrac(*)
+	+ Phân biệt object(hoặc có thể là instance) và class(*)
+	+ Hiểu về luồng trong java(Thread)
+- Kiến thức cơ bản android:
+	+ 4 component của android(*)
+	+ Vòng đời của activity, fragment(*)
+	+ Di chuyển, truyền dữ liệu qua các activity, fragment với nhau(*)
+	+ Các loại layout hay dùng: Linear, Relative, Constraint(*)
+	+ 2 loại bộ nhớ của android: Trong(Internal)(*) - Ngoài(External)
+	+ 1 vài ví dụ về Internal Storage: sharePreferance(*), database (SQLite)(*), internal storage
+	+ Nắm được cách dùng SQLite truyền thống và thư viện Room(*)
+	+ Một chút về Service và Notification
+Các chỗ (*) là các ý quan trọng cần phải ôn kỹ và sử dụng thành thạo nhất là phần OOP sẽ được hỏi kỹ, còn lại chỉ cần hiểu biết.
