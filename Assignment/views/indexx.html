@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+  <!-- <script>document.addEventListener('DOMContentLoaded', function () {
+      // Đăng nhập thành công
+      function loginSuccess() {
+        // Chuyển đến trang chủ
+        window.location.href = 'home';
+      }
+
+      // Xử lý sự kiện khi submit form đăng nhập
+      document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Lấy thông tin đăng nhập từ form
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+
+        // Kiểm tra thông tin đăng nhập
+        if (username === user.email && password === user.passWord) {
+          // Đăng nhập thành công
+          loginSuccess();
+        } else {
+          // Đăng nhập không thành công
+          alert('Tên đăng nhập hoặc mật khẩu không đúng.');
+        }
+      });
+    });
+  </script> -->
+  <!--  -->
+  <style>
+    .col-md-6 {
+      margin-top: 5%;
+      box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      border-radius: 5px;
+      background-color: #ffffff;
+      overflow: hidden;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <form id="login-form" method="post" action="/login">
+          <div class="form-group text-center mb-5">
+            <h3>Login</h3>
+          </div>
+          <div class="form-group">
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" name="username" class="form-control" id="username">
+          </div>
+          <div class="form-group">
+            <label for="password">Mật khẩu</label>
+            <input type="password" name="password" class="form-control" id="password">
+            <div> <a href="http://localhost:8080/register"> Đăng Ký Ngay ?</a> </div>
+          </div>
+
+          <div class="form-group text-center mb-5">
+            <button type="submit" class="btn btn-primary" id="login-button">Đăng nhập</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

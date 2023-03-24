@@ -1,0 +1,22 @@
+#editProductModalLabel{
+font-size: 30px;
+font-weight: bold;
+margin-left: 23%;
+}
+.modal-header,.modal-footer{
+    background-color: rgb(149, 223, 74);
+}
+.modal-body{
+    background-color: aliceblue;
+}
+/* .aa{
+    background-color: rgb(70, 99, 99);
+} */
+.card-img-top{
+   
+    height: 600;
+}
+.a{
+padding: 5px;
+background-color: black;
+}

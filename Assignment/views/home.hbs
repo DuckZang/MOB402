@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style/home.css">
+
+
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Products</h1>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>NAME</th>
+              <th>TYPE</th>
+              <th>Price</th>
+              <th>IMG</th>
+              <th>Color</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each product as |value key|}}
+            <tr>
+              <td> {{this.idProduct}} </td>
+              <td> {{this.name}}</td>
+              <td> {{this.type}}</td>
+              <td> {{this.price}}</td>
+              <td> <img src={{this.img}} width="80" height="80"></td>
+              <td> {{this.color}} </td>
+              <td>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">Sửa</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Xóa</button>
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="editModalLabel">Sửa thông
+                          tin Product</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <form method="POST" action="/home/edit">
+                          <div class="form-group">
+                            <label for="productName">Tên Sản Phẩm: </label>
+                            <input type="text" value={{this.name}} class="form-control" name="nameEdit"
+                              id="productName">
+                          </div>
+                          <div class="form-group">
+                            <label for="productType">Loại sản phẩm</label>
+                            <select class="form-control" name="typeEdit" id="productType">
+                              <option>Quần</option>
+                              <option>Áo</option>
+                            </select>
+                          </div>
+                          <div class="form-group">
+                            <label for="price">Giá :</label>
+                            <input type="number" value={{this.price}} class="form-control" name="priceEdit" id="price">
+                          </div>
+                          <div class="form-group">
+                            <label for="productImage">Hình ảnh</label>
+                            <input type="file" name="imgEdit" value={{this.img}} class="form-control-file"
+                              id="productImage">
+                          </div>
+                          <div class="form-group">
+                            <label for="color">Màu :</label>
+                            <input type="text" class="form-control" value={{this.color}} name="colorEdit" id="color">
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                            <button type="submit" class="btn btn-primary"> Cập nhật </button>
+                          </div>
+                        </form>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal xóa -->
+                <form method="POST" action="/home/delete">
+                  <input type="hidden" name="itemId" value={{key}} />
+                  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog"
+                    aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="deleteModalLabel">Xóa Product </h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true"></span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Bạn có chắc chắn muốn xóa product này ?</p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                          <button type="submit" class="btn btn-danger">Xóa</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+
+      </div>
+      <!-- Form thêm sản phẩm mới -->
+
+      <div class="card col-md-3">
+        <div class="card-header">
+          Thêm sản phẩm mới
+        </div>
+        <div class="card-body">
+          <form method="POST" action="/home/add" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="productName">Id sản phẩm</label>
+              <input type="number" class="form-control" name="idProduct" id="idProduct" placeholder="Nhập id sản phẩm">
+            </div>
+            <div class="form-group">
+              <label for="productName">Tên sản phẩm</label>
+              <input type="text" class="form-control" name="name" id="productName" placeholder="Nhập tên sản phẩm">
+            </div>
+            <div class="form-group">
+              <label for="productType">Loại sản phẩm</label>
+              <select class="form-control" name="type" id="productType">
+                <option>Quần</option>
+                <option>Áo</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="productPrice">Giá tiền</label>
+              <input type="number" class="form-control" name="price" id="productPrice" placeholder="Nhập giá sản phẩm">
+            </div>
+            <div class="form-group">
+              <label for="productColor">Màu sắc</label>
+              <input type="text" class="form-control" name="color" id="productName" placeholder="Nhập màu sắc sản phẩm">
+            </div>
+            <div class="form-group">
+              <label for="productImage">Hình ảnh</label>
+              <input type="text" class="form-control" name="img" id="productName" placeholder="Nhập link hình ảnh sản phẩm">
+            </div>
+            {{!-- <div class="form-group">
+              <label for="productImage">Hình ảnh</label>
+              <input type="file" name="img" class="form-control-file" id="productImage">
+            </div> --}}
+            <button type="submit" class="btn btn-primary">Thêm sản phẩm</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+
+</html>

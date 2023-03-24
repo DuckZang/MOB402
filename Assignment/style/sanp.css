@@ -1,0 +1,32 @@
+.container {
+    margin-top: 50px;
+}
+.product-list {
+    margin-top: 30px;
+}
+.product-list .thumbnail {
+    height: 350px;
+    padding: 20px;
+    border: none;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+    transition: all .3s ease-in-out;
+}
+.product-list .thumbnail:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,.5);
+    transform: translateY(-5px);
+}
+.product-list .thumbnail .caption {
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: #333;
+}
+.product-list .thumbnail .caption h4 {
+    margin-top: 0;
+}
+.product-list .thumbnail .caption p {
+    font-size: 16px;
+    margin-bottom: 0;
+}
+.product-list .thumbnail .btn {
+    margin-top: 15px;
+}
