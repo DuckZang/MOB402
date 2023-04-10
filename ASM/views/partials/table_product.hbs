@@ -1,0 +1,68 @@
+ <div class="col-md-12">
+        <h1>Products</h1>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>TYPE</th>
+              <th>Price</th>
+              <th>Color</th>
+              <th>Thao tác</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each products}}
+            <tr>
+              <td> {{this.name}}</td>
+              <td> {{this.type}}</td>
+              <td> {{this.price}}</td>
+              <td> {{this.color}} </td>
+              <td>
+                 <a type="button" class="btn btn-info" href="/api/product_update/{{this._id}}"> Update </a> 
+                {{!-- <button type="button" class="btn btn-danger"> <a href="#"></a>Xóa</button> --}}
+                <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#modal_{{this._id}}"
+            > Xóa </button>
+              </td>
+            </tr>
+            <!-- The Modal -->
+        <div class="modal" id="modal_{{this._id}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Xoá</h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                {{this.name}}
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer col-auto">
+                <a
+                  type="button"
+                  class="btn btn-danger"
+                  href="/api/product_delete/{{this._id}}"
+                >Yes</a>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+            {{/each}}
+          </tbody>
+        </table>
+
+      </div>

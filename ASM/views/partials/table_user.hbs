@@ -1,0 +1,68 @@
+ <div class="col-md-12">
+        <h1>Account</h1>
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>FULL NAME</th>
+              <th>EMAIL</th>
+              <th>PASSWORD</th>
+              <th>ROLE</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each users}}
+            <tr>
+              <td> {{this.fullName}}</td>
+              <td> {{this.email}}</td>
+              <td> {{this.passWord}} </td>
+              <td> {{this.role}}</td>
+              <td>
+                 <a type="button" class="btn btn-info" href="/api/user_update/{{this._id}}"> Update </a> 
+                {{!-- <button type="button" class="btn btn-danger"> <a href="#"></a>Xóa</button> --}}
+                <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-toggle="modal"
+              data-bs-target="#modal_{{this._id}}"
+            > Xóa </button>
+              </td>
+            </tr>
+            <!-- The Modal -->
+        <div class="modal" id="modal_{{this._id}}">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Xoá</h4>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                ></button>
+              </div>
+              <!-- Modal body -->
+              <div class="modal-body">
+                {{this.fullName}}
+              </div>
+              <!-- Modal footer -->
+              <div class="modal-footer col-auto">
+                <a
+                  type="button"
+                  class="btn btn-danger"
+                  href="/api/user_delete/{{this._id}}"
+                >Yes</a>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >No</button>
+              </div>
+            </div>
+          </div>
+        </div>
+            {{/each}}
+          </tbody>
+        </table>
+
+      </div>
